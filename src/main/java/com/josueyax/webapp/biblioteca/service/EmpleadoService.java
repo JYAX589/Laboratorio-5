@@ -10,12 +10,11 @@ import com.josueyax.webapp.biblioteca.repository.EmpleadoRepository;
 
 @Service
 public class EmpleadoService implements IEmpleadoService {
-
     @Autowired
     private EmpleadoRepository empleadoRepository;
 
     @Override
-    public List<Empleado> listarEmpleados() {
+    public List<Empleado> listarEmpleado() {
         return empleadoRepository.findAll();
     }
 
@@ -26,7 +25,7 @@ public class EmpleadoService implements IEmpleadoService {
 
     @Override
     public Boolean guardarEmpleado(Empleado empleado) {
-        if (!verificarDpiDuplicado(empleado)) { //DPI NO DUPLICADO
+        if (!verificarDpiDuplicado(empleado)) {
             empleadoRepository.save(empleado);
             return true;
         } else {
@@ -40,12 +39,12 @@ public class EmpleadoService implements IEmpleadoService {
     }
 
     @Override
-    public Boolean verificarDpiDuplicado(Empleado newEmpleado) {
-        List<Empleado> empleados = listarEmpleados();
+    public Boolean verificarDpiDuplicado(Empleado empleadoNuevo) {
+        List<Empleado> empleados = listarEmpleado();
         Boolean flag = false;
         for (Empleado empleado : empleados) {
-            if (empleado.getDpi().equals(newEmpleado.getDpi()) && !empleado.getId().equals(newEmpleado.getId())) {
-                flag = true;  //Existe un dpi dupblicado
+            if (empleado.getDPI().equals(empleadoNuevo.getDPI()) && !empleado.getId().equals(empleadoNuevo.getId())) {
+                flag = true;
             }
         }
         return flag;

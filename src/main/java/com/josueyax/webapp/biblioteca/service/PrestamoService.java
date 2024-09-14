@@ -7,30 +7,38 @@ import org.springframework.stereotype.Service;
 
 import com.josueyax.webapp.biblioteca.model.Prestamo;
 import com.josueyax.webapp.biblioteca.repository.PrestamoRepository;
+import com.josueyax.webapp.biblioteca.util.MethodType;
 
 @Service
 public class PrestamoService implements IPrestamoService {
-
     @Autowired
     PrestamoRepository prestamoRepository;
 
     @Override
-    public Prestamo buscarPrestamoPorId(Long id){
+    public List<Prestamo> listarPrestamos() {
+        return prestamoRepository.findAll();
+
+    }
+
+    @Override
+    public Prestamo guardarPrestamo(Prestamo prestamo, MethodType methodType) {
+        if (methodType.equals(methodType.POST)) {
+            return prestamoRepository.save(prestamo);
+        } else if (methodType == MethodType.PUT) {
+            return prestamoRepository.save(prestamo);
+        } else {
+            return prestamoRepository.save(null);
+        }
+    }
+
+    @Override
+    public Prestamo buscarPrestamoPorId(Long id) {
         return prestamoRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void eliminarPrestamo(Prestamo prestamo){
+    public void eliminarPrestamo(Prestamo prestamo) {
         prestamoRepository.delete(prestamo);
     }
 
-    @Override
-    public Prestamo guardarPrestamo(Prestamo prestamo){
-        return prestamoRepository.save(prestamo);
-    }
-
-    @Override
-    public List<Prestamo> listarPrestamos(){
-        return prestamoRepository.findAll();
-    }
 }

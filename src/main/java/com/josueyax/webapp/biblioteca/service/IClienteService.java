@@ -5,12 +5,11 @@ import java.util.List;
 import com.josueyax.webapp.biblioteca.model.Cliente;
 
 public interface IClienteService {
+    public List<Cliente> listarCliente();
 
-    public List<Cliente> listarClientes();
+    public Cliente buscarClientePorId(Long DPI);
 
-    public Cliente buscarClientePorDpi(Long dpi);
-
-    public Cliente guardarCliente(Cliente cliente); // Clase de retorno para el Response del Postman.
+    public Cliente guardarCliente(Cliente cliente);
 
     public void eliminarCliente(Cliente cliente);
 }

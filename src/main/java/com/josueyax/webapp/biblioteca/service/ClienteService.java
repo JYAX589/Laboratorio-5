@@ -10,18 +10,12 @@ import com.josueyax.webapp.biblioteca.repository.ClienteRepository;
 
 @Service
 public class ClienteService implements IClienteService {
-
     @Autowired
     private ClienteRepository clienteRepository;
 
     @Override
-    public List<Cliente> listarClientes() {
+    public List<Cliente> listarCliente() {
         return clienteRepository.findAll();
-    }
-
-    @Override
-    public Cliente buscarClientePorDpi(Long dpi) {
-        return clienteRepository.findById(dpi).orElse(null);
     }
 
     @Override
@@ -32,5 +26,10 @@ public class ClienteService implements IClienteService {
     @Override
     public void eliminarCliente(Cliente cliente) {
         clienteRepository.delete(cliente);
+    }
+
+    @Override
+    public Cliente buscarClientePorId(Long DPI) {
+        return clienteRepository.findById(DPI).orElse(null);
     }
 }

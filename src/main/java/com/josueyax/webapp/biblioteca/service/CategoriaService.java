@@ -9,18 +9,18 @@ import com.josueyax.webapp.biblioteca.model.Categoria;
 import com.josueyax.webapp.biblioteca.repository.CategoriaRepository;
 
 @Service
-public class CategoriaService implements ICategoriaService{
-
+public class CategoriaService implements ICategoriaService {
     @Autowired
     private CategoriaRepository categoriaRepository;
 
     @Override
-    public List<Categoria> listarCategorias() {
+    public List<Categoria> listarCategoria() {
         return categoriaRepository.findAll();
     }
 
     @Override
-    public Categoria buscarCategoriaPorId(Long id) {
+    public Categoria busCategoriaPorId(Long id) {
+
         return categoriaRepository.findById(id).orElse(null);
     }
 
@@ -36,17 +36,20 @@ public class CategoriaService implements ICategoriaService{
 
     @Override
     public void eliminarCategoria(Categoria categoria) {
-        categoriaRepository.delete(categoria);    
+
+        categoriaRepository.delete(categoria);
     }
 
     @Override
-    public Boolean verificarCategoriaDuplicado(Categoria newCategoria) {
-        List<Categoria> categorias = listarCategorias();
+    public Boolean verificarCategoriaDuplicado(Categoria categoriaNueva) {
+        List<Categoria> categorias = listarCategoria();
         Boolean flag = false;
         for (Categoria categoria : categorias) {
-            if (newCategoria.getNombreCategoria().equalsIgnoreCase(categoria.getNombreCategoria()) && newCategoria.getId().equals(categoria.getId())) {
+            if (categoria.getNombreCategoria().equals(categoriaNueva.getNombreCategoria())
+                    && !categoria.getNombreCategoria().equals(categoriaNueva.getNombreCategoria())) {
                 return true;
             }
+
         }
         return flag;
     }

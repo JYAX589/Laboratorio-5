@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.josueyax.webapp.biblioteca.controller.FXController.EmpleadoControllerFX">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/MenuEmpleado.png" />
+         </image></ImageView>
+      <TextField fx:id="tfId" editable="false" layoutX="65.0" layoutY="181.0" prefHeight="38.0" prefWidth="189.0" promptText="ID">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfNombre" layoutX="212.0" layoutY="226.0" prefHeight="38.0" prefWidth="163.0" promptText="Nombre">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfApellido" layoutX="393.0" layoutY="181.0" prefHeight="38.0" prefWidth="182.0" promptText="Apellido">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfTelefono" layoutX="575.0" layoutY="226.0" prefHeight="38.0" prefWidth="189.0" promptText="Telefono">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfDireccion" layoutX="742.0" layoutY="181.0" prefHeight="38.0" prefWidth="240.0" promptText="Direccion">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfDpi" layoutX="880.0" layoutY="226.0" prefHeight="38.0" prefWidth="106.0" promptText="DPI">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font>
+      </TextField>
+      <Button fx:id="btnGuardar" layoutX="795.0" layoutY="283.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="54.0" prefWidth="133.0" style="-fx-background-radius: 5;" text="Guardar">
+         <font>
+            <Font name="Calibri" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnLimpiar" layoutX="795.0" layoutY="353.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="54.0" prefWidth="133.0" style="-fx-background-radius: 5;" text="Limpiar">
+         <font>
+            <Font name="Calibri" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnEliminar" layoutX="795.0" layoutY="426.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="54.0" prefWidth="133.0" style="-fx-background-radius: 5;" text="Eliminar">
+         <font>
+            <Font name="Calibri" size="15.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tblEmpleados" layoutX="71.0" layoutY="286.0" onMouseClicked="#cargarForm" prefHeight="296.0" prefWidth="691.0">
+         <columns>
+            <TableColumn fx:id="colId" prefWidth="42.39996337890625" text="ID" />
+            <TableColumn fx:id="colNombre" prefWidth="136.0" text="Nombre" />
+            <TableColumn fx:id="colApellido" prefWidth="157.0" text="Apellido" />
+            <TableColumn fx:id="colTelefono" prefWidth="113.0" text="Teléfono" />
+            <TableColumn fx:id="colDireccion" prefWidth="130.0" text="Dirección" />
+            <TableColumn fx:id="colDpi" prefWidth="111.0" text="DPI" />
+         </columns>
+      </TableView>
+      <Button fx:id="btnRegresar" layoutX="795.0" layoutY="506.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="54.0" prefWidth="133.0" style="-fx-background-radius: 5;" text="Regresar">
+         <font>
+            <Font name="Calibri" size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

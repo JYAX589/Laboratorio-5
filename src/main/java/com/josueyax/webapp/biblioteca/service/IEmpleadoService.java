@@ -5,8 +5,7 @@ import java.util.List;
 import com.josueyax.webapp.biblioteca.model.Empleado;
 
 public interface IEmpleadoService {
-
-    public List<Empleado> listarEmpleados();
+    public List<Empleado> listarEmpleado();
 
     public Empleado buscarEmpleadoPorId(Long id);
 
@@ -14,5 +13,5 @@ public interface IEmpleadoService {
 
     public void eliminarEmpleado(Empleado empleado);
 
-    public Boolean verificarDpiDuplicado(Empleado newEmpleado);
+    public Boolean verificarDpiDuplicado(Empleado empleadoNuevo);
 }

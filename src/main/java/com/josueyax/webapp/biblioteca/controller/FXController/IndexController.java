@@ -10,53 +10,38 @@ import com.josueyax.webapp.biblioteca.model.Categoria;
 import com.josueyax.webapp.biblioteca.service.CategoriaService;
 import com.josueyax.webapp.biblioteca.system.Main;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.MenuItem;
 import lombok.Setter;
 
+
 @Component
-public class IndexController implements Initializable {
-
-    @FXML
-    TextField tfId, tfNombre;
-
-    @FXML
-    Button btnEliminar, btnGuardar, btnLimpiar;
-    
-    @FXML
-    TableView tblCategorias;
-
-    @FXML
-    TableColumn colId, colNombre;
-
+public class IndexController implements Initializable{
     @Setter
     private Main stage;
-
-    @Autowired
-    CategoriaService categoriaService;
+    @FXML
+    MenuItem btnCategoria,btnClientes,btnLibros,btnEmpleados,btnPrestamos;
 
     @Override
     public void initialize(URL url, ResourceBundle resources) {
-        cargarDatos();
-    }
-
-    public void cargarDatos(){
-        tblCategorias.setItems(listarCategorias());
-        colId.setCellValueFactory(new PropertyValueFactory<Categoria, Long>("id"));
-        colNombre.setCellValueFactory(new PropertyValueFactory<Categoria, String>("nombreCategoria"));
-
         
     }
-
-    public ObservableList<Categoria> listarCategorias(){
-        return FXCollections.observableList(categoriaService.listarCategorias());
+    @FXML
+    public void handleButtonAction(ActionEvent event){
+        if(event.getSource() == btnCategoria){
+            stage.categoriaView();
+        }else if(event.getSource() == btnClientes){
+            stage.clienteView();
+        }else if(event.getSource() == btnEmpleados){
+            stage.empleadoView();
+        }else if(event.getSource() == btnLibros){
+            stage.libroView();
+        }else if(event.getSource() == btnPrestamos){
+            
+        }
     }
+    
     
 }

@@ -14,19 +14,19 @@ import lombok.Data;
 @Data
 @Table(name = "Libros")
 public class Libro {
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String isbn;
     private String nombre;
-    @Column(columnDefinition = "TEXT") //Define un tipo de dato.
+    @Column(columnDefinition = "TEXT")
     private String sinopsis;
     private String autor;
     private String editorial;
     private Boolean disponibilidad;
     private String numeroEstanteria;
     private String cluster;
-    @ManyToOne(fetch = FetchType.EAGER) //EAGER trae todo el objeto y LAZER solamente el Id.
+    @ManyToOne(fetch = FetchType.EAGER)
     private Categoria categoria;
+
 }

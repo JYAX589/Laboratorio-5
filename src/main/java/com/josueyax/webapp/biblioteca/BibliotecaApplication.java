@@ -11,7 +11,6 @@ import javafx.application.Application;
 public class BibliotecaApplication {
 
 	public static void main(String[] args) {
-
 		Application.launch(Main.class, args);
 		SpringApplication.run(BibliotecaApplication.class, args);
 	}

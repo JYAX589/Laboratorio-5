@@ -10,7 +10,6 @@ import com.josueyax.webapp.biblioteca.repository.LibroRepository;
 
 @Service
 public class LibroService implements ILibroService {
-
     @Autowired
     LibroRepository libroRepository;
 
@@ -33,5 +32,5 @@ public class LibroService implements ILibroService {
     public void eliminarLibro(Libro libro) {
         libroRepository.delete(libro);
     }
-    
+
 }

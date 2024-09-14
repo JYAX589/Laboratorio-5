@@ -1,30 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.josueyax.webapp.biblioteca.controller.FXController.IndexController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.josueyax.webapp.biblioteca.controller.FXController.IndexController">
    <children>
-      <ImageView fitHeight="600.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+      <MenuBar layoutY="4.0" prefHeight="25.0" prefWidth="600.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Menu">
+            <items>
+              <MenuItem fx:id="btnCategoria" mnemonicParsing="false" onAction="#handleButtonAction" text="Menu Categoria" />
+                  <MenuItem fx:id="btnEmpleados" mnemonicParsing="false" onAction="#handleButtonAction" text="Menu Empleado" />
+                  <MenuItem fx:id="btnLibros" mnemonicParsing="false" onAction="#handleButtonAction" text="Menu Libro" />
+                  <MenuItem fx:id="btnClientes" mnemonicParsing="false" onAction="#handleButtonAction" text="Menu Cliente" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <ImageView fitHeight="371.0" fitWidth="600.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../image/Categorias.png" />
+            <Image url="@../Image/Bienvenido.png" />
          </image>
       </ImageView>
-      <TextField fx:id="tfId" editable="false" layoutX="70.0" layoutY="195.0" prefHeight="39.0" prefWidth="179.0" />
-      <TextField fx:id="tfNombre" layoutX="70.0" layoutY="309.0" prefHeight="39.0" prefWidth="179.0" />
-      <TableView fx:id="tblCategoiras" layoutX="330.0" layoutY="174.0" prefHeight="331.0" prefWidth="510.0">
-        <columns>
-          <TableColumn fx:id="colId" prefWidth="117.0" text="Id Categoria" />
-          <TableColumn fx:id="colNombre" prefWidth="392.0" text="Nombre Categoria" />
-        </columns>
-      </TableView>
-      <Button fx:id="btnGuardar" layoutX="44.0" layoutY="381.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="134.0" text="Guardar" />
-      <Button fx:id="btnEliminar" layoutX="703.0" layoutY="514.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="134.0" text="Eliminar" />
-      <Button fx:id="btnLimpiar" layoutX="43.0" layoutY="476.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="134.0" text="Limpiar" />
    </children>
 </AnchorPane>

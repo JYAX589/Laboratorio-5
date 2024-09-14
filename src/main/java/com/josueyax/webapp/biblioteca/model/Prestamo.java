@@ -13,12 +13,13 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.ToString;
 
 @Entity
 @Data
-@Table(name="Prestamos")
+@ToString
+@Table(name = "Prestamos")
 public class Prestamo {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,9 +31,6 @@ public class Prestamo {
     @ManyToOne
     private Cliente cliente;
     @ManyToMany
-    @JoinTable(name = "prestamos_libros",
-    joinColumns = @JoinColumn(name = "prestamo_id", referencedColumnName = "id"),
-    inverseJoinColumns = @JoinColumn(name = "libros_id", referencedColumnName = "id"))
+    @JoinTable(name = "prestamos_libros", joinColumns = @JoinColumn(name = "prestamo_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "libros_id", referencedColumnName = "id"))
     private List<Libro> libros;
-    
 }
